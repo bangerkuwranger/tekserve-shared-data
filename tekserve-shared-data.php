@@ -3,7 +3,7 @@
  * Plugin Name: Tekserve Shared Data
  * Plugin URI: https://github.com/bangerkuwranger
  * Description: Stores global data that is reused over all Tekserve web assets
- * Version: 1.1
+ * Version: 1.2
  * Author: Chad A. Carino
  * Author URI: http://www.chadacarino.com
  * License: MIT
@@ -347,7 +347,7 @@ function tekserve_shared_data_hours_menu_page() {
 		$wpdb->update( $wpdbhrstable, $notactive, $active );
 		$wpdb->update( $wpdbhrstable, $active, $selected );
 		$selectedout = $wpdb->get_row( $selectedq, ARRAY_A );
-		echo "<h1 id='success-saved-directory'>YEP, SAVED:</h1>";
+		echo "<h1 id='success-saved-hours'>YEP, SAVED:</h1>";
 		echo "<div  style='display: inline;' class='selecthrs_option_title'><h2 style='display: inline;'>  ".$selectedout['id']." - ".$selectedout['name']."</h2></div><div class='selecthrs_option_html'><h3>HTML</h3>".$selectedout['html']."</div><div class='selecthrs_option_img'><h3>Image</h3><div style='background-color: #004d72;'><img src='".$selectedout['imgurl']."' /></div></div><div class='selecthrs_option_mobile_img'><h3>Mobile Image</h3><div style='background-color: #004d72;'><img src='".$selectedout['mobileimgurl']."' /></div></div></div>";    // outputs the saved value		
 		tekserve_shared_data_readwrite();
 	} else {
@@ -398,7 +398,8 @@ function tekserve_shared_data_directory_menu_page() {
 			'tbody' => array(),
 			'a' => array(
 				'href' => array(),
-				'title' => array()
+				'title' => array(),
+				'id'	=> array()
 			),
 			'br' => array(),
 			'em' => array(),
